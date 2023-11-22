@@ -1,0 +1,10 @@
+E:\Base de datos I\Clases\Base de Datazos\ConexionSQL\VSventas\Sventas\bin\Debug\Sventas.exe.config
+E:\Base de datos I\Clases\Base de Datazos\ConexionSQL\VSventas\Sventas\bin\Debug\Sventas.exe
+E:\Base de datos I\Clases\Base de Datazos\ConexionSQL\VSventas\Sventas\bin\Debug\Sventas.pdb
+E:\Base de datos I\Clases\Base de Datazos\ConexionSQL\VSventas\Sventas\obj\Debug\Sventas.csproj.AssemblyReference.cache
+E:\Base de datos I\Clases\Base de Datazos\ConexionSQL\VSventas\Sventas\obj\Debug\Sventas.Authentication.resources
+E:\Base de datos I\Clases\Base de Datazos\ConexionSQL\VSventas\Sventas\obj\Debug\Sventas.Properties.Resources.resources
+E:\Base de datos I\Clases\Base de Datazos\ConexionSQL\VSventas\Sventas\obj\Debug\Sventas.csproj.GenerateResource.cache
+E:\Base de datos I\Clases\Base de Datazos\ConexionSQL\VSventas\Sventas\obj\Debug\Sventas.csproj.CoreCompileInputs.cache
+E:\Base de datos I\Clases\Base de Datazos\ConexionSQL\VSventas\Sventas\obj\Debug\Sventas.exe
+E:\Base de datos I\Clases\Base de Datazos\ConexionSQL\VSventas\Sventas\obj\Debug\Sventas.pdb
