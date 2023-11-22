@@ -506,6 +506,14 @@ begin
 	end
 end
 
+select * from Proveedor J02
+
+---Mostrar productos (Necesario para el datagrid)
+create proc MostrarProd
+as
+BEGIN
+     select CodProd as ID,NombreProd as Nombre,PrecioP as Precio,ExistP as Existencias ,RUC as Direccion,RUC as RUC from Productos where EstadoProd=1
+END     
 
 sp_addlogin 'LuisaT', 'IL22', 'SVentas'
 sp_addsrvrolemember 'LuisaT', 'sysadmin'

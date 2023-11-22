@@ -1,6 +1,6 @@
 ﻿namespace Sventas
 {
-    partial class Menu
+    partial class Proveeedor
     {
         /// <summary>
         /// Required designer variable.
@@ -28,18 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // Menu
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(83)))), ((int)(((byte)(115)))));
-            this.ClientSize = new System.Drawing.Size(839, 475);
-            this.Name = "Menu";
-            this.Text = "Menu";
-            this.ResumeLayout(false);
-
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "Proveeedor";
         }
 
         #endregion

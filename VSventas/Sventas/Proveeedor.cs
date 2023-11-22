@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Sventas
 {
-    public partial class Menu : Form
+    public partial class Proveeedor : Form
     {
-        public Menu()
+        public Proveeedor()
         {
             InitializeComponent();
         }

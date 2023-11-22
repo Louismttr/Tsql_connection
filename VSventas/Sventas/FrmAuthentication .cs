@@ -1,20 +1,20 @@
 ﻿using Sventas.Connection_and_Class;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Sventas
 {
     public partial class Authentication : Form
     {
+        BackgroundWorker bg = new BackgroundWorker();
         Connection con;
+        frmMenu men;
+        int cont = 3;
         public Authentication()
         {
             InitializeComponent();
@@ -72,17 +72,45 @@ namespace Sventas
 
         #endregion
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+
+        private void bgw_DoWork(object sender, DoWorkEventArgs e)
         {
-            Cursor.Current = Cursors.WaitCursor;
-            if(txtUser.Text.Equals("") || txtPass.Text.Equals(""))
+            int progreso = 0, porciento = 0;
+
+
+            for (int i = 0; i <= 100; i++)
             {
-                MessageBox.Show("No pueden haber campos vacios", "Intente de nuevo!", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                Cursor.Current = Cursors.Default;
-                return;
+                progreso++;
+                Thread.Sleep(50);
+                bg.ReportProgress(i);
+            }
+        }
+
+        private void bgw_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar.Value = e.ProgressPercentage;
+            progressBar.Style = ProgressBarStyle.Blocks;
+
+
+            if (e.ProgressPercentage > 100)
+            {
+                Prtj.Text = "100%";
+                progressBar.Value = progressBar.Maximum;
+            }
+            else
+            {
+                Prtj.Text = Convert.ToString(e.ProgressPercentage) + "%";
+                progressBar.Value = e.ProgressPercentage;
             }
 
-            con = new Connection(txtUser.Text, txtPass.Text);
+        }
+
+        private void bgw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            men = new frmMenu(con);
+
+            men.Show();
+            this.Hide();
         }
 
         //Validaciones
@@ -101,5 +129,53 @@ namespace Sventas
         //        e.Handled = true;
         //    }
         //}
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            //Validar espacios vacios 
+            if (txtUser.Text.Equals("") || txtPass.Text.Equals(""))
+            {
+                MessageBox.Show("No pueden haber campos vacios ", "Intente de nuevo!", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                Cursor.Current = Cursors.Default;
+                return;
+            }
+
+            con = new Connection(txtUser.Text, txtPass.Text);
+            if (this.con.connect.State == ConnectionState.Open)
+            {
+
+                bg.WorkerReportsProgress = true;
+                bg.ProgressChanged += bgw_ProgressChanged;
+                bg.DoWork += bgw_DoWork;
+                bg.RunWorkerCompleted += bgw_RunWorkerCompleted;
+                bg.RunWorkerAsync();
+                Prtj.Visible = true;
+                progressBar.Visible = true;
+
+            }
+            else
+            {
+                Cursor.Current = Cursors.Default;
+                --cont;
+                MessageBox.Show("Error:usuario o contraseña incorrecta ", cont + " Intentos restantes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (cont == 0)
+                {
+                    cont = 3;
+                    btnAceptar.Enabled = false;
+                    btnCancelar.Enabled = false;
+                    Thread.Sleep(5000);
+                    btnAceptar.Enabled = true;
+                    btnCancelar.Enabled = true;
+
+                }
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            
+        }
     }
 }
