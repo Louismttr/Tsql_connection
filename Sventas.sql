@@ -507,7 +507,7 @@ begin
 end
 
 
-sp_addlogin 'LMTG', 'IL22', 'SVentas'
-sp_addsrvrolemember 'LMTG', 'sysadmin'
-sp_adduser 'LMTG', 'LUMME'
-sp_addrolemember 'db_ddladmin', 'LUMME'
+sp_addlogin 'LuisaT', 'IL22', 'SVentas'
+sp_addsrvrolemember 'LuisaT', 'sysadmin'
+sp_adduser 'LuisaT', 'LuisaT'
+sp_addrolemember 'db_ddladmin', 'LuisaT'
