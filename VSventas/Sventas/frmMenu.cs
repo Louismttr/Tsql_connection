@@ -16,14 +16,24 @@ namespace Sventas
     public partial class frmMenu : Form
     {
         public Connection con;
-        public frmMenu(Connection_and_Class.Connection con)
+        
+        public frmMenu(Connection con)
         {
+            this.con = con;
             InitializeComponent();
         }
 
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           OpenPanel(new Productos(con));
+
+            OpenPanel(new Productos(con));
+
+            //Otra opcion para abrir formularios
+            //Productos pro = new Productos(con);
+            //pro.MdiParent = this;
+
+            //pro.Show();
+
         }
 
         ///Abrir formularios

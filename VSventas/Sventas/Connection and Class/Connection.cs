@@ -19,7 +19,7 @@ namespace Sventas.Connection_and_Class
             try
             {
 
-                connect = new SqlConnection("Server=Luisa\\SQLEXPRESS;Database=Clientes;UID=" + user + ";PWD=" + pass);
+                connect = new SqlConnection("Server=Luisa\\SQLEXPRESS;Database=SVentas;UID=" + user + ";PWD=" + pass);
                 connect.Open();
             }
             catch (Exception)
@@ -67,11 +67,15 @@ namespace Sventas.Connection_and_Class
             }
             
         }
+        public void ModificarPro(DataGridView GridView1, string cod, string NombreProd, float precio, int exits, string RUC)
+        {
+
+        }
         public void listarProductos(DataGridView GridView1)
         {
 
             SqlCommand cmd = new SqlCommand();
-            SqlDataReader read;
+            //SqlDataReader read;
 
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "MostrarProd";

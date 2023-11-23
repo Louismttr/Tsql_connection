@@ -32,8 +32,6 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripSplitButton2 = new System.Windows.Forms.ToolStripSplitButton();
             this.proveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.insertarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pContiene = new System.Windows.Forms.Panel();
@@ -66,25 +64,10 @@
             // 
             // proveedorToolStripMenuItem
             // 
-            this.proveedorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.insertarToolStripMenuItem,
-            this.listarToolStripMenuItem});
             this.proveedorToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("proveedorToolStripMenuItem.Image")));
             this.proveedorToolStripMenuItem.Name = "proveedorToolStripMenuItem";
             this.proveedorToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.proveedorToolStripMenuItem.Text = "Proveedor";
-            // 
-            // insertarToolStripMenuItem
-            // 
-            this.insertarToolStripMenuItem.Name = "insertarToolStripMenuItem";
-            this.insertarToolStripMenuItem.Size = new System.Drawing.Size(173, 34);
-            this.insertarToolStripMenuItem.Text = "Insertar";
-            // 
-            // listarToolStripMenuItem
-            // 
-            this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
-            this.listarToolStripMenuItem.Size = new System.Drawing.Size(173, 34);
-            this.listarToolStripMenuItem.Text = "Listar";
             // 
             // clientesToolStripMenuItem
             // 
@@ -109,7 +92,7 @@
             this.pContiene.Size = new System.Drawing.Size(839, 442);
             this.pContiene.TabIndex = 1;
             // 
-            // Menu
+            // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -117,7 +100,7 @@
             this.ClientSize = new System.Drawing.Size(839, 475);
             this.Controls.Add(this.pContiene);
             this.Controls.Add(this.toolStrip1);
-            this.Name = "Menu";
+            this.Name = "frmMenu";
             this.Text = "Menu";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -133,8 +116,6 @@
         private System.Windows.Forms.ToolStripMenuItem proveedorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem insertarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listarToolStripMenuItem;
         private System.Windows.Forms.Panel pContiene;
     }
 }

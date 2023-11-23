@@ -1,25 +1,19 @@
 ﻿using Sventas.Connection_and_Class;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Sventas
 {
     public partial class Productos : Form
     {
-        private Connection con;
+        public Connection con;
         int renglon;
+
         public Productos(Connection con)
         {
             this.con = con;
             InitializeComponent();
+            ListarProd();
         }
 
         private void btnCrear_Click(object sender, EventArgs e)
@@ -31,7 +25,7 @@ namespace Sventas
                 return;
             }
 
-            con.InsertProduct(txtCod.Text, txtNom.Text, float.Parse(txtPre.Text), int.Parse(txtExis.Text), txtRUC.Text);
+            con.InsertProduct(txtCod.Text, txtNom.Text, Convert.ToInt32(txtPre.Text), Convert.ToInt32(txtExis.Text), txtRUC.Text);
             MessageBox.Show("Producto regristrado, exitosamente!", "Listo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
@@ -46,7 +40,21 @@ namespace Sventas
             renglon = e.RowIndex;
         }
 
-        private void dgvProd_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvProd_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtCod.Text = "";
+            txtNom.Text = "";
+            txtPre.Text = "";
+            txtExis.Text = "";
+            txtRUC.Text = "";   
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
         {
 
         }
